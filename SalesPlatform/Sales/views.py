@@ -8,16 +8,17 @@ def base_template(request):
     render(request,'sales/base.html')    
 
 def user_template(request):
-    usersdata = Users.users.all()
-    serializer = UserSerializer(usersdata, many=True)
+    usersData = Users.users.all()
+    serializer = UserSerializer(usersData, many=True)
     users = serializer.data
-    render(request,'sales/users.html',context=users)    
+    context = {'users':users}
+    return render(request,'sales/users.html',context)    
 
 def contacts_template(request):
     contactsdata = Contacts.contacts.all()
     serializer = ContactSerializer(contactsdata, many=True)
     contacts = serializer.data
-    render(request,'sales/contacts.html',context=contacts)
+    return render(request,'sales/contacts.html',context=contacts)
 
 # Create your views here.
 def user_list(request):

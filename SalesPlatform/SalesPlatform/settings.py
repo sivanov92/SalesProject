@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'SalesPlatform.apps.SalesConfig',
+    'Sales.apps.SalesConfig',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,7 +56,8 @@ ROOT_URLCONF = 'SalesPlatform.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
