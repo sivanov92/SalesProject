@@ -1,0 +1,6 @@
+{% extends "sales/base.html" %}
+   {% block content %}
+      {% for user in users %}
+          User Name : {{ user.name }}  EMAIL : {{ user.email }} 
+      {% endfor %}
+   {% endblock content %}

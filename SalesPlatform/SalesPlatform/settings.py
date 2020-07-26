@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'Sales',
+    'SalesPlatform.apps.SalesConfig',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
