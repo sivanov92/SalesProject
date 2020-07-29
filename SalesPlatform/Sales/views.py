@@ -7,6 +7,8 @@ from rest_framework.parsers import JSONParser
 def base_template(request):
     render(request,'sales/base.html')    
 
+def EnterContent(request):
+    return render(request,'sales/enterContent.html')
 def user_template(request):
     usersData = Users.users.all()
     serializer = UserSerializer(usersData, many=True)

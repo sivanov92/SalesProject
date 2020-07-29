@@ -4,5 +4,6 @@ from . import views
 urlpatterns = [
     path('userT/', views.user_template, name='UserTemplate'),
     path('contactT/', views.contacts_template, name='ContactTemplate'),
+    path('enterContent/',views.EnterContent,name='EnterContent')
 
 ]
