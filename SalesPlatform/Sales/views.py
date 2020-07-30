@@ -3,7 +3,7 @@ from Sales.models import Users,Contacts
 from Sales.serializers import UserSerializer,ContactSerializer
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
-
+import io
 def base_template(request):
     render(request,'sales/base.html')    
 
