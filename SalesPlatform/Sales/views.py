@@ -19,7 +19,7 @@ def user_template(request):
 def contacts_template(request):
     contactsdata = Contacts.contacts.all()
     serializer = ContactSerializer(contactsdata, many=True)
-    contacts = serializer.data
+    contacts = dict(serializer.data)
     return render(request,'sales/contacts.html',context=contacts)
 
 # Create your views here.
