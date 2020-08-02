@@ -3,7 +3,7 @@ from Sales.models import Users,Contacts
 from Sales.serializers import UserSerializer,ContactSerializer
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
-import io
+import io,json
 def base_template(request):
     render(request,'sales/base.html')    
 
@@ -33,7 +33,7 @@ def user_list(request):
         return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
-        data = JSONParser().parse(request.body)
+        data = json.loads(request.body)
         serializer = UserSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
@@ -50,7 +50,7 @@ def contact_list(request):
         return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
-        data = JSONParser().parse(request.body)
+        data = dict(request.body)
         serializer = UserSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
