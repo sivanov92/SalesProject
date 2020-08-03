@@ -9,6 +9,9 @@ def base_template(request):
 
 def EnterContent(request):
     return render(request,'sales/enterContent.html')
+def APIdocs(request):
+    return render(request,'sales/apidocs.html')
+
 def user_template(request):
     usersData = Users.users.all()
     serializer = UserSerializer(usersData, many=True)

@@ -19,6 +19,6 @@ from Sales import views
 urlpatterns = [
     path('users/', include('Sales.UsersUrls')),
     path('contacts/',include('Sales.ContactsUrls')),
-    path('templates/',include('Sales.templateUrls')),
+    path('',include('Sales.templateUrls')),
     path('admin/', admin.site.urls),
 ]
