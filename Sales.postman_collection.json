@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "ad1c2bf7-6b31-4144-9f0d-c6b59716c4e2",
+		"name": "Sales",
+		"description": "# Introduction\r\n==============\r\nThe API is used to send(create) and/or view users and contacts, in the base Sales test system.\r\n#Overview\r\n---------\r\nThere are two types of requests currently supported by the API - GET and POST, in the 2.0 version we will include a bigger variety of options/\r\n\r\nThe endpoints are as follows :\r\n/users/    -  With Get or POST request you have access either to view all listed users or create a new one.\r\nThe requests body consists of 3 parts\r\n1. name - the name of the user\r\n2. email - email contact for the user\r\n3. position - the position of the user inside the organisation, it is free text\r\n\r\n/contacts/ - With Get or POST request you have access either to view all listed contacts or create a new one.\r\nThe requests body consists of 3 parts\r\n1. name - the name of the contact person\r\n2. contact_details - contact detailed info for the user\r\n3. contact_id - the ID of the user who created the contact, it is free text\r\n==========================\r\nIn both endpoints ,when a POST request is attempted, the user should include the csrf token, which can be taken from a cookie with the name csrftoken.\r\n==========================\r\n# Error codes\r\n=============\r\nThe main error code a user can expect is 400, if the request body is not in the right format.\r\nIn almost any other case the user should receive a 200 Success code.\r\n#Rate Limit\r\n------------\r\nNo rate limit set so far ! ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "228426a3-0aea-4882-a899-22e082999e3c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0d2323af-49f8-4304-accd-45809b5fcf6c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
