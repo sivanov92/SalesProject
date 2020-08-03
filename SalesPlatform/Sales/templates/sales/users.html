@@ -1,7 +1,13 @@
 {% extends "sales/base.html" %}
    {% block content %}
-      <h1>USERS</h1>
+   <h1 class="display-1 text-center">USERS</h1>
       {% for user in users %}
-          <p>User Name : {{ user.name }}  EMAIL : {{ user.email }}</p>
+          <div class="container">  
+              <div class="row">
+            <div class="col-sm border"><h2>User ID {{ user.id }}</h2></div>  
+            <div class="col-sm border">User Name {{ user.name }}</div>
+            <div class="col-sm border">User Mail {{ user.email}}</div>
+              </div>
+          </div>
       {% endfor %}
    {% endblock content %}

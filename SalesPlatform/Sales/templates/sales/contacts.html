@@ -1,6 +1,14 @@
 {% extends "sales/base.html" %}
-    {% block content %}
-       {% for contact in contacts %}
-           <p><h1>contact Name : {{ contact.name }} </h1> ID : {{ contact.id }} </p>
-       {% endfor %}
-    {% endblock content %}
+   {% block content %}
+   <h1 class="display-1 text-center">Contacts</h1>
+      {% for contact in contacts %}
+          <div class="container">  
+              <div class="row">
+            <div class="col-sm border"><h2>Contact ID {{ contact.id }}</h2></div>  
+            <div class="col-sm border">Contact Name {{ contact.name }}</div>
+            <div class="col-sm border">Contact Details {{ contact.details }}</div>
+            <div class="col-sm border">Contact Sales ID {{ contact.contact_id }}</div>
+              </div>
+          </div>
+      {% endfor %}
+   {% endblock content %}

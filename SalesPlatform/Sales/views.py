@@ -19,8 +19,9 @@ def user_template(request):
 def contacts_template(request):
     contactsdata = Contacts.contacts.all()
     serializer = ContactSerializer(contactsdata, many=True)
-    contacts = dict(serializer.data)
-    return render(request,'sales/contacts.html',context=contacts)
+    contacts = serializer.data
+    context = {'contacts':contacts}
+    return render(request,'sales/contacts.html',context)
 
 # Create your views here.
 def user_list(request):
@@ -50,8 +51,8 @@ def contact_list(request):
         return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
-        data = dict(request.body)
-        serializer = UserSerializer(data=data)
+        data = json.loads(request.body)
+        serializer = ContactSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)

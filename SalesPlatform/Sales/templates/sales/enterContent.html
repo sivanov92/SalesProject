@@ -1,30 +1,76 @@
 {% extends "sales/base.html" %}
    {% block content %}
-      <h1>Enter Content</h1>
+      <h1 class="display-3 text-center">Enter Content</h1>
+      <p class="lead text-center">
+        This page is for you to add USERS and CONTACTS to the DB
+      </p>
       <section>
       {% csrf_token %}
-      <label for="UserName">User Name :</label>
+      <div class="container" style="width: 30%;">
+          <div class="row">
+          <div class="col-sm border">
+        <label for="UserName">User Name :</label>
+      <div class="row">
       <textarea name="UserName" id="UserName" cols="20" rows="1"></textarea>
+      </div>
       <label for="UserMail">User Mail :</label>
+      <div class="row">
       <textarea name="UserMail" id="UserMail" cols="20" rows="1"></textarea>
+      </div>
       <label for="UserPosition">User UserPosition :</label>
+      <div class="row">
       <textarea name="UserPosition" id="UserPosition" cols="20" rows="1"></textarea>
-      <button id="SubmitUser">Submit User</button>
+      </div>
+      <div class="row">
+      <button class="btn btn-outline-primary" id="SubmitUser" style="margin-top: 1em;">Submit User</button>
+      </div>
+          </div>
+          <div class="col-sm border">
+            <label for="ContactName">Contact Name :</label>
+          <div class="row">
+          <textarea name="ContactName" id="ContactName" cols="20" rows="1"></textarea>
+          </div>
+          <label for="ContactDetails">Contact Details </label>
+          <div class="row">
+          <textarea name="ContactDetails" id="ContactDetails" cols="20" rows="1"></textarea>
+          </div>
+          <label for="ContactID">ContactID</label>
+          <div class="row">
+          <textarea name="ContactID" id="ContactID" cols="20" rows="1"></textarea>
+          </div>
+          <div class="row">
+          <button class="btn btn-outline-primary" id="SubmitContact" style="margin-top: 1em;">Submit Contact</button>
+          </div>
+              </div>
+    </div>
+      </div>
       </section>      
       <script type = "text/javascript">
 
 document.getElementById('SubmitUser').addEventListener('click',addUser);
+document.getElementById('SubmitContact').addEventListener('click',addContact);
+
 function addUser(){
     var userName = document.getElementById('UserName').value;
       var userMail = document.getElementById('UserMail').value;
       var userPosition = document.getElementById('UserPosition').value;
 
     const csrftoken  = getCookie('csrftoken');
-    var data = {id:10 , name:userName, email:userMail, position:userPosition};
+    var data = {name:userName, email:userMail, position:userPosition};
+    console.log(data);
+    SendPOSTusers(csrftoken,data);
+} 
+function addContact(){
+      var contactName = document.getElementById('ContactName').value;
+      var contactDetails = document.getElementById('ContactDetails').value;
+      var ContactID = document.getElementById('ContactID').value;
+
+    const csrftoken  = getCookie('csrftoken');
+    var data = {name:contactName, contact_details:contactDetails, contact_id:ContactID};
     console.log(data);
     //SendPOST(csrftoken,data);
     //GETdata(csrftoken);
-    SendPOST(csrftoken,data);
+    SendPOSTcontacts(csrftoken,data);
 } 
 function getCookie(name) {
     let cookieValue = null;
@@ -41,7 +87,7 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-function SendPOST(token,body){
+function SendPOSTusers(token,body){
     fetch('http://127.0.0.1:8000/users/',{
         method:"POST",
         headers:{
@@ -55,23 +101,19 @@ function SendPOST(token,body){
     .then((data)=>console.log(data))
     .catch(err => console.error('Caught error: ', err));       
      }
-
-
-     function GETdata(token){
-    fetch('http://127.0.0.1:8000/users/',{
-        method:"GET",
+     function SendPOSTcontacts(token,body){
+    fetch('http://127.0.0.1:8000/contacts/',{
+        method:"POST",
         headers:{
             'Accept':'application/json, text/plain, */*',
             'Content-type':'application/json',
             'X-CSRFToken':token
-        }
+        },
+        body:JSON.stringify(body)
     })
-    .then(response => response.json())
-    .then(data => console.log(data));
-    return response.json();
-     }
-
-     
-     
+    .then((res)=>res.json)
+    .then((data)=>console.log(data))
+    .catch(err => console.error('Caught error: ', err));       
+     }   
       </script>
    {% endblock content %}
