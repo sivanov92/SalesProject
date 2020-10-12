@@ -14,6 +14,24 @@ def CheckContent(request):
     }
     return render(request,'sales/customers.html',context=context)
 
+def CustDetail(request,id):
+    element = Contacts.contacts.get(id=id)
+    context = {
+        'element':element
+    }
+    return render(request,'sales/customersDetail.html',context=context)
+
+def DeleteCustomer(request,id):
+    element = Contacts.contacts.get(id=id)
+    element.delete()
+    element_list = list(Contacts.contacts.all())
+    exists = Contacts.contacts.all().exists()
+    context = {
+        'element_list':element_list,
+        'exists':exists
+    }
+    return render(request,'sales/customers.html',context=context)
+
 def base_template(request):
     render(request,'sales/base.html')    
 

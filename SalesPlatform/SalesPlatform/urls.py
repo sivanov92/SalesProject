@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import include,path
 from Sales import views
 urlpatterns = [
+    path('customerDetails/<int:id>/',views.CustDetail),
+    path('deleteCustomer/<int:id>/',views.DeleteCustomer),   
     path('users/', include('Sales.UsersUrls')),
     path('contacts/',include('Sales.ContactsUrls')),
     path('',include('Sales.templateUrls')),

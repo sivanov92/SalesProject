@@ -2,9 +2,11 @@
    {% block customers %}
    {% if exists %}
     {% for element in element_list %}
+    <a href="/customerDetails/{{ element.id }}">
     <div class="CustomerElement">
         <h4>{{ element.id }} | {{ element.name }} {{ element.contact_details }}</h4>
     </div>
+    </a>
     {% endfor %}
    {% endif %} 
    {% endblock customers %}

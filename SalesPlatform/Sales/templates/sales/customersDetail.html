@@ -1,0 +1,11 @@
+{% extends "sales/checkcontent.html" %}
+   {% block customers %}
+    <div class="CustomerDetail">
+        <h1>Customer #{{ element.id }}</h1>
+        <h3>Name {{ element.name }}</h3>
+        <h4>Details on the client :  {{ element.contact_details }}</h4>
+        <a href="/deleteCustomer/{{element.id}}/">
+            <div id="DeleteButton">Delete Customer</div>
+        </a>
+    </div>
+   {% endblock customers %}
