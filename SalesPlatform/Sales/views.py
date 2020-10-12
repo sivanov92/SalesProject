@@ -24,13 +24,10 @@ def CustDetail(request,id):
 def DeleteCustomer(request,id):
     element = Contacts.contacts.get(id=id)
     element.delete()
-    element_list = list(Contacts.contacts.all())
-    exists = Contacts.contacts.all().exists()
     context = {
-        'element_list':element_list,
-        'exists':exists
+        'id':id
     }
-    return render(request,'sales/customers.html',context=context)
+    return render(request,'sales/DeleteCustomer.html',context=context)
 
 def base_template(request):
     render(request,'sales/base.html')    
