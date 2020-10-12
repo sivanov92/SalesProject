@@ -1,0 +1,24 @@
+{% extends "sales/base.html" %}
+   {% block content %}
+   <h1>Welcome to my customer management Django App</h1>
+   <div class="MainContainer">
+       <div id="NavContainer">
+       <h2>Nav</h2>
+       <a href="/enterContent/">
+           <div class="navElements">Enter Content</div>
+       </a>
+       <a href="/users/">
+           <div class="navElements">API for Users</div>
+       </a>
+       <a href="/contacts/">
+           <div class="navElements">API for Contacts</div>
+       </a>
+
+       </div>
+       <div id="ContentContainer">
+       <h2>Customer List</h2>
+       {% block customers %}
+       {% endblock customers %}
+       </div>
+   </div>
+   {% endblock content %}

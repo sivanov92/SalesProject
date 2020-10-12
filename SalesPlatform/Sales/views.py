@@ -4,6 +4,16 @@ from Sales.serializers import UserSerializer,ContactSerializer
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
 import io,json
+
+def CheckContent(request):
+    element_list = list(Contacts.contacts.all())
+    exists = Contacts.contacts.all().exists()
+    context = {
+        'element_list':element_list,
+        'exists':exists
+    }
+    return render(request,'sales/customers.html',context=context)
+
 def base_template(request):
     render(request,'sales/base.html')    
 

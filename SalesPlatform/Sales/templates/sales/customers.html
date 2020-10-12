@@ -1,0 +1,10 @@
+{% extends "sales/checkcontent.html" %}
+   {% block customers %}
+   {% if exists %}
+    {% for element in element_list %}
+    <div class="CustomerElement">
+        <h4>{{ element.id }} | {{ element.name }} {{ element.contact_details }}</h4>
+    </div>
+    {% endfor %}
+   {% endif %} 
+   {% endblock customers %}

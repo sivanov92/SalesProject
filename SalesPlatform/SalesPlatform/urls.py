@@ -20,5 +20,6 @@ urlpatterns = [
     path('users/', include('Sales.UsersUrls')),
     path('contacts/',include('Sales.ContactsUrls')),
     path('',include('Sales.templateUrls')),
+    path('',views.CheckContent),
     path('admin/', admin.site.urls),
 ]

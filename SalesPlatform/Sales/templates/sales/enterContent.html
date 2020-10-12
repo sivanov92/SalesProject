@@ -1,5 +1,20 @@
 {% extends "sales/base.html" %}
    {% block content %}
+   <div class="MainContainer">
+    <div id="NavContainer">
+    <h2>Nav</h2>
+    <a href="/">
+        <div class="navElements">Home</div>
+    </a>
+    <a href="/users/">
+        <div class="navElements">API for Users</div>
+    </a>
+    <a href="/contacts/">
+        <div class="navElements">API for Contacts</div>
+    </a>
+
+    </div>
+   <div id="ContentContainer">
       <h1 class="display-3 text-center">Enter Content</h1>
       <p class="lead text-center">
         This page is for you to add USERS and CONTACTS to the DB
@@ -34,16 +49,15 @@
           <div class="row">
           <textarea name="ContactDetails" id="ContactDetails" cols="20" rows="1"></textarea>
           </div>
-          <label for="ContactID">ContactID</label>
-          <div class="row">
-          <textarea name="ContactID" id="ContactID" cols="20" rows="1"></textarea>
-          </div>
           <div class="row">
           <button class="btn btn-outline-primary" id="SubmitContact" style="margin-top: 1em;">Submit Contact</button>
           </div>
               </div>
     </div>
       </div>
+    </div>
+</div>
+
       </section>      
       <script type = "text/javascript">
 
@@ -63,10 +77,9 @@ function addUser(){
 function addContact(){
       var contactName = document.getElementById('ContactName').value;
       var contactDetails = document.getElementById('ContactDetails').value;
-      var ContactID = document.getElementById('ContactID').value;
 
     const csrftoken  = getCookie('csrftoken');
-    var data = {name:contactName, contact_details:contactDetails, contact_id:ContactID};
+    var data = {name:contactName, contact_details:contactDetails};
     console.log(data);
     //SendPOST(csrftoken,data);
     //GETdata(csrftoken);

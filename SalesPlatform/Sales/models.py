@@ -7,8 +7,8 @@ class Users(models.Model):
     users = models.Manager()
 
 class Contacts(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200)
     contact_details = models.CharField(max_length=300)
-    contact_id =models.CharField(max_length=15)
     contacts = models.Manager() 
 # Create your models here.
